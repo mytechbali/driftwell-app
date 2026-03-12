@@ -97,7 +97,7 @@ const Header = () => {
 
       <div className="container mx-auto flex items-center justify-center px-6 py-3 relative">
         <a href="/" className="absolute left-6 text-xl font-bold tracking-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
-          Solo<span className="text-primary">Wander</span>
+          Solo<span className="text-primary">Wandering kone</span>
         </a>
 
         <nav className="hidden md:flex items-center gap-1">
