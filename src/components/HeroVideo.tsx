@@ -27,7 +27,7 @@ const HeroVideo = () => {
           Solo Travel Platform
         </p>
         <h1 className="mb-6 text-5xl font-bold leading-tight md:text-7xl lg:text-8xl max-w-4xl">
-          The World is Yours to Wander
+          The World is Yours to Wandering
         </h1>
         <p className="mb-10 max-w-xl text-lg opacity-80 font-sans font-light">
           Discover hidden gems, connect with fellow travelers, and create unforgettable memories on your own terms.
