@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "my-tech-bali"
+  },
+  "targets": {
+    "baliprana": {
+      "hosting": {
+        "baliprana": [
+          "baliprana"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
