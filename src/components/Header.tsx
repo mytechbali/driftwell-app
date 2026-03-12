@@ -7,46 +7,48 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useLanguage } from "@/i18n/LanguageContext";
+import type { Lang } from "@/i18n/translations";
 
-const languages = [
+const languages: { code: Lang; label: string }[] = [
   { code: "EN", label: "English" },
   { code: "ES", label: "Español" },
   { code: "FR", label: "Français" },
   { code: "DE", label: "Deutsch" },
 ];
 
-const navItems = [
-  {
-    label: "Destinations",
-    children: [
-      { label: "Asia", href: "#" },
-      { label: "Europe", href: "#" },
-      { label: "Americas", href: "#" },
-    ],
-  },
-  {
-    label: "Travel Guides",
-    children: [
-      { label: "Budget Travel", href: "#" },
-      { label: "Luxury Travel", href: "#" },
-      { label: "Safety Tips", href: "#" },
-    ],
-  },
-  {
-    label: "Community",
-    children: [
-      { label: "Forum", href: "#" },
-      { label: "Stories", href: "#" },
-      { label: "Meetups", href: "#" },
-    ],
-  },
-];
-
 const Header = () => {
+  const { lang, setLang, t } = useLanguage();
   const [isDark, setIsDark] = useState(false);
-  const [lang, setLang] = useState("EN");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [visible, setVisible] = useState(false);
+
+  const navItems = [
+    {
+      label: t("nav.destinations"),
+      children: [
+        { label: t("nav.asia"), href: "#" },
+        { label: t("nav.europe"), href: "#" },
+        { label: t("nav.americas"), href: "#" },
+      ],
+    },
+    {
+      label: t("nav.travelGuides"),
+      children: [
+        { label: t("nav.budgetTravel"), href: "#" },
+        { label: t("nav.luxuryTravel"), href: "#" },
+        { label: t("nav.safetyTips"), href: "#" },
+      ],
+    },
+    {
+      label: t("nav.community"),
+      children: [
+        { label: t("nav.forum"), href: "#" },
+        { label: t("nav.stories"), href: "#" },
+        { label: t("nav.meetups"), href: "#" },
+      ],
+    },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,7 +70,6 @@ const Header = () => {
         visible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
       }`}
     >
-      {/* Utility bar */}
       <div className="border-b border-border/30">
         <div className="container mx-auto flex items-center justify-end gap-3 px-6 py-1.5 text-sm">
           <DropdownMenu>
@@ -94,13 +95,11 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Main nav */}
       <div className="container mx-auto flex items-center justify-center px-6 py-3 relative">
         <a href="/" className="absolute left-6 text-xl font-bold tracking-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
           Solo<span className="text-primary">Wander</span>
         </a>
 
-        {/* Desktop nav — centered */}
         <nav className="hidden md:flex items-center gap-1">
           {navItems.map((item) => (
             <DropdownMenu key={item.label}>
@@ -121,13 +120,11 @@ const Header = () => {
           ))}
         </nav>
 
-        {/* Mobile menu toggle */}
         <Button variant="ghost" size="icon" className="md:hidden absolute right-6" onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </Button>
       </div>
 
-      {/* Mobile nav */}
       {mobileOpen && (
         <div className="md:hidden border-t border-border/30 px-6 py-4 space-y-3">
           {navItems.map((item) => (
