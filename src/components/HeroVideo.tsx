@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const HeroVideo = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <video
@@ -18,25 +21,23 @@ const HeroVideo = () => {
         />
       </video>
 
-      {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
 
-      {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-white">
         <p className="mb-4 text-sm uppercase tracking-[0.3em] opacity-80 font-sans">
-          Solo Travel Platform
+          {t("hero.tag")}
         </p>
         <h1 className="mb-6 text-5xl font-bold leading-tight md:text-7xl lg:text-8xl max-w-4xl">
-          The World is Yours to Wander
+          {t("hero.title")}
         </h1>
         <p className="mb-10 max-w-xl text-lg opacity-80 font-sans font-light">
-          Discover hidden gems, connect with fellow travelers, and create unforgettable memories on your own terms.
+          {t("hero.subtitle")}
         </p>
         <Button
           size="lg"
           className="rounded-full px-8 py-6 text-base font-semibold gap-2 bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg"
         >
-          Start Your Journey
+          {t("hero.cta")}
           <ArrowRight className="h-5 w-5" />
         </Button>
       </div>

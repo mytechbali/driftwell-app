@@ -1,59 +1,32 @@
 import { Share2, Wifi, Brain, MapPin, Shield, Users } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
-const tips = [
-  {
-    icon: Share2,
-    title: "Share Your Itinerary",
-    description: "Always let someone know where you're going. Share your plans with a trusted friend or family member.",
-    size: "large" as const,
-  },
-  {
-    icon: Wifi,
-    title: "Stay Connected",
-    description: "Get a local SIM or eSIM. Reliable internet means reliable safety.",
-    size: "small" as const,
-  },
-  {
-    icon: Brain,
-    title: "Trust Your Instincts",
-    description: "If something feels off, leave. Your gut is your best travel companion.",
-    size: "small" as const,
-  },
-  {
-    icon: MapPin,
-    title: "Know Your Surroundings",
-    description: "Research neighborhoods before booking. Stay aware of local customs and areas to avoid.",
-    size: "small" as const,
-  },
-  {
-    icon: Shield,
-    title: "Secure Your Valuables",
-    description: "Use hotel safes, money belts, and keep digital copies of all important documents.",
-    size: "small" as const,
-  },
-  {
-    icon: Users,
-    title: "Connect with Others",
-    description: "Join group tours, stay in social hostels, and use travel apps to meet fellow solo travelers safely.",
-    size: "large" as const,
-  },
+const tipData = [
+  { icon: Share2, titleKey: "safety.share.title", descKey: "safety.share.desc", size: "large" as const },
+  { icon: Wifi, titleKey: "safety.connected.title", descKey: "safety.connected.desc", size: "small" as const },
+  { icon: Brain, titleKey: "safety.instincts.title", descKey: "safety.instincts.desc", size: "small" as const },
+  { icon: MapPin, titleKey: "safety.surroundings.title", descKey: "safety.surroundings.desc", size: "small" as const },
+  { icon: Shield, titleKey: "safety.valuables.title", descKey: "safety.valuables.desc", size: "small" as const },
+  { icon: Users, titleKey: "safety.connect.title", descKey: "safety.connect.desc", size: "large" as const },
 ];
 
 const SafetyTips = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="py-20 md:py-28 px-6 bg-muted/50">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-14">
           <p className="text-sm uppercase tracking-[0.2em] text-primary font-semibold mb-3 font-sans">
-            Travel Smart
+            {t("safety.tag")}
           </p>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground">
-            Safety Tips for Solo Travelers
+            {t("safety.title")}
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[200px]">
-          {tips.map((tip, i) => {
+          {tipData.map((tip, i) => {
             const Icon = tip.icon;
             const isLarge = tip.size === "large";
             return (
@@ -70,10 +43,10 @@ const SafetyTips = () => {
                 </div>
                 <div className="mt-auto">
                   <h3 className={`font-bold text-card-foreground mb-2 ${isLarge ? "text-xl" : "text-base"}`}>
-                    {tip.title}
+                    {t(tip.titleKey)}
                   </h3>
                   <p className={`text-muted-foreground leading-relaxed font-sans ${isLarge ? "text-sm" : "text-xs"}`}>
-                    {tip.description}
+                    {t(tip.descKey)}
                   </p>
                 </div>
               </div>
