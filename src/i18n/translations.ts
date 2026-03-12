@@ -18,7 +18,7 @@ export const translations: Record<Lang, Record<string, string>> = {
 
     // Hero
     "hero.tag": "Solo Travel Platform",
-    "hero.title": "The World is Yours to Wander",
+    "hero.title": "The World is Yours to Wandering kone nah",
     "hero.subtitle": "Discover hidden gems, connect with fellow travelers, and create unforgettable memories on your own terms.",
     "hero.cta": "Start Your Journey",
 
